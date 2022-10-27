@@ -9,17 +9,25 @@ function NavPage(props) {
             {props.page==1 ?(
                 <p>Page: {props.page}</p> 
                 ):(
-                    <button className="btn btn-primary btn-sm" 
-                    onClick={() => props.setPage(props.page - 1)}>
+                    <button 
+                        className="btn btn-primary btn-sm" 
+                        onClick={() => props.setPage(props.page - 1)}
+                    >
                        {`< Page ${props.page - 1}`} 
                     </button>
                 ) 
             }
             <div>{props.page}</div>
-            <button className="btn btn-primary btn-sm" 
-            onClick={() => props.setPage(props.page + 1)}>
+            {props.page==42 ? (
+                <p>Page: {props.page}</p>
+            ):(
+                <button 
+                    className="btn btn-primary btn-sm" 
+                    onClick={() => props.setPage(props.page + 1)}>
                 {`Page ${props.page + 1} >`} 
-            </button>
+                </button>
+            )}
+            
         </header>
     )
 }
@@ -48,26 +56,24 @@ const CharacterList = () => {
 
 
     return (
-        <div className="container">
+        <div className="ms-5 me-5">
 
             <NavPage page={page} setPage={setPage}/>
 
             {
                 loading ? (
-                <h1>Loading...</h1>
+                    <h1>Loading...</h1>
                 ) : (
-                    <div className="row">
-                    {
-                        characters.map(character => {
-                        return (
-                            <div className="col-md-4" key={character.id} >
-                                <Character character={character}/>
-                            </div>
-                        );
-                        })
-                    }
-                </div>
-                )
+                        <section className="d-flex flex-wrap justify-content-evenly pt-3">
+                        {
+                            characters.map(character => {
+                            return (
+                                    <Character key={character.id} character={character} />
+                            );
+                            })
+                        }
+                        </section>
+                    )
             }
 
             <NavPage page={page} setPage={setPage}/>

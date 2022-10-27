@@ -1,9 +1,6 @@
 
 import CharacterList from './components/CharacterList';
 
-
-
-
 const App = () => {
 
   return <div className='bg-dark text-white'>
