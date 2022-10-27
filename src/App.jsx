@@ -1,13 +1,17 @@
 
 import CharacterList from './components/CharacterList';
+import header from './assets/header.webp';
 
 const App = () => {
 
-  return <div className='bg-dark text-white'>
-      <h1 className='text-center display-1 py-4'>Rick & Morty</h1>
+  return (
+    <div className='main bg-dark text-white '>
+      <div className='header ps-2 pe-2'>
+        <img className='header-img' src={header}/>
+      </div>      
       <CharacterList />
     </div>
-  
+  )
 }
 
 export default App
